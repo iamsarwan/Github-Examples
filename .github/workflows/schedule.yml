@@ -1,7 +1,11 @@
 name: schedule
+
+# Run every 5 minutes (UTC). GitHub scheduler is more reliable with */5 than very high-frequency schedules.
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '*/5 * * * *'
+  # Add manual trigger so you can test immediately from the Actions UI
+  workflow_dispatch:
 
 jobs:
   hello_world:
